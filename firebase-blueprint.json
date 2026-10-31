@@ -1,0 +1,197 @@
+{
+  "entities": {
+    "SiteSettings": {
+      "title": "SiteSettings",
+      "description": "Global website configuration, headings, navigation, and section visibility",
+      "type": "object",
+      "properties": {
+        "heroHeadline": { "type": "string", "maxLength": 200 },
+        "heroSubheadline": { "type": "string", "maxLength": 500 },
+        "heroPrimaryCta": { "type": "object" },
+        "heroSecondaryCta": { "type": "object" },
+        "aboutTitle": { "type": "string", "maxLength": 200 },
+        "aboutDescription": { "type": "string", "maxLength": 1000 },
+        "stats": { "type": "array" },
+        "navLinks": { "type": "array" },
+        "socialLinks": { "type": "array" },
+        "sectionVisibility": { "type": "object" },
+        "contactEmail": { "type": "string", "maxLength": 150 },
+        "contactTelegram": { "type": "string", "maxLength": 100 },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["heroHeadline", "heroSubheadline", "aboutTitle"]
+    },
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Registered Google user profile",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "maxLength": 128 },
+        "displayName": { "type": "string", "maxLength": 150 },
+        "email": { "type": "string", "maxLength": 150 },
+        "photoURL": { "type": "string", "maxLength": 200000 },
+        "createdAt": { "type": "string" },
+        "lastLoginAt": { "type": "string" }
+      },
+      "required": ["uid", "email"]
+    },
+    "Course": {
+      "title": "Course",
+      "description": "Trading education course data",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 64 },
+        "title": { "type": "string", "maxLength": 150 },
+        "slug": { "type": "string", "maxLength": 150 },
+        "shortDescription": { "type": "string", "maxLength": 300 },
+        "description": { "type": "string", "maxLength": 3000 },
+        "level": { "type": "string", "enum": ["Beginner", "Intermediate", "Advanced", "Mastery"] },
+        "price": { "type": "number" },
+        "duration": { "type": "string", "maxLength": 50 },
+        "modulesCount": { "type": "number" },
+        "rating": { "type": "number" },
+        "enrolledCount": { "type": "number" },
+        "thumbnailUrl": { "type": "string", "maxLength": 200000 },
+        "badge": { "type": "string", "maxLength": 50 },
+        "modules": { "type": "array" },
+        "isPublished": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["title", "level", "price", "isPublished"]
+    },
+    "BlogPost": {
+      "title": "BlogPost",
+      "description": "Forex and trading education blog post",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 64 },
+        "title": { "type": "string", "maxLength": 200 },
+        "slug": { "type": "string", "maxLength": 200 },
+        "category": { "type": "string", "maxLength": 80 },
+        "excerpt": { "type": "string", "maxLength": 500 },
+        "content": { "type": "string", "maxLength": 20000 },
+        "readTime": { "type": "string", "maxLength": 30 },
+        "author": { "type": "string", "maxLength": 100 },
+        "thumbnailUrl": { "type": "string", "maxLength": 200000 },
+        "isPublished": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["title", "category", "content", "isPublished"]
+    },
+    "PricingPlan": {
+      "title": "PricingPlan",
+      "description": "Trading academy membership tier",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 64 },
+        "name": { "type": "string", "maxLength": 80 },
+        "priceMonthly": { "type": "number" },
+        "priceYearly": { "type": "number" },
+        "badge": { "type": "string", "maxLength": 50 },
+        "description": { "type": "string", "maxLength": 250 },
+        "features": { "type": "array" },
+        "isPopular": { "type": "boolean" },
+        "ctaText": { "type": "string", "maxLength": 50 },
+        "ctaLink": { "type": "string", "maxLength": 200 },
+        "sortOrder": { "type": "number" }
+      },
+      "required": ["name", "priceMonthly", "features"]
+    },
+    "Testimonial": {
+      "title": "Testimonial",
+      "description": "Funded trader reviews and success stories",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 64 },
+        "studentName": { "type": "string", "maxLength": 100 },
+        "role": { "type": "string", "maxLength": 100 },
+        "fundedAmount": { "type": "string", "maxLength": 50 },
+        "avatarUrl": { "type": "string", "maxLength": 200000 },
+        "quote": { "type": "string", "maxLength": 800 },
+        "rating": { "type": "number" },
+        "verified": { "type": "boolean" }
+      },
+      "required": ["studentName", "quote", "rating"]
+    },
+    "FAQ": {
+      "title": "FAQ",
+      "description": "Frequently asked questions",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 64 },
+        "question": { "type": "string", "maxLength": 300 },
+        "answer": { "type": "string", "maxLength": 2000 },
+        "category": { "type": "string", "maxLength": 60 },
+        "sortOrder": { "type": "number" }
+      },
+      "required": ["question", "answer"]
+    },
+    "ContactInquiry": {
+      "title": "ContactInquiry",
+      "description": "Contact form submissions from prospective students",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 64 },
+        "name": { "type": "string", "maxLength": 100 },
+        "email": { "type": "string", "maxLength": 120 },
+        "subject": { "type": "string", "maxLength": 150 },
+        "message": { "type": "string", "maxLength": 2000 },
+        "createdAt": { "type": "string" },
+        "status": { "type": "string", "enum": ["new", "read", "replied"] }
+      },
+      "required": ["name", "email", "message"]
+    },
+    "AdminUser": {
+      "title": "AdminUser",
+      "description": "Authorized administrator record",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "maxLength": 120 },
+        "role": { "type": "string", "enum": ["admin"] },
+        "username": { "type": "string", "maxLength": 50 },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["email", "role"]
+    }
+  },
+  "firestore": {
+    "/site_settings/{settingId}": {
+      "schema": "SiteSettings",
+      "description": "Global website configuration"
+    },
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Registered Google users"
+    },
+    "/courses/{courseId}": {
+      "schema": "Course",
+      "description": "Forex trading courses"
+    },
+    "/blog_posts/{postId}": {
+      "schema": "BlogPost",
+      "description": "Academy blog posts and trading updates"
+    },
+    "/pricing_plans/{planId}": {
+      "schema": "PricingPlan",
+      "description": "Subscription tiers and pricing"
+    },
+    "/testimonials/{testimonialId}": {
+      "schema": "Testimonial",
+      "description": "Student testimonials and funded proofs"
+    },
+    "/faqs/{faqId}": {
+      "schema": "FAQ",
+      "description": "Frequently asked questions"
+    },
+    "/contact_inquiries/{inquiryId}": {
+      "schema": "ContactInquiry",
+      "description": "Public inquiries received from website"
+    },
+    "/admins/{uid}": {
+      "schema": "AdminUser",
+      "description": "Admins authorized for content editing"
+    }
+  }
+}

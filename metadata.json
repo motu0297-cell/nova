@@ -1,0 +1,6 @@
+{
+  "name": "NOVA FX — Trading Education Platform",
+  "description": "Premium dark fintech trading education academy with courses, live market analysis, and institutional curriculum.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
